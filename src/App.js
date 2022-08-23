@@ -8,7 +8,24 @@ function App() {
         <main>
           <Dictionary />
         </main>
-        <footer>footer here</footer>
+        <footer>
+          This project by{" "}
+          <a
+            href="https://moonlit-halva-46f128.netlify.app/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Charmaine Rapp
+          </a>{" "}
+          is{" "}
+          <a
+            href="https://github.com/rappcw/dictionary-app"
+            target="_blank"
+            rel="noreferrer"
+          >
+            open-sourced
+          </a>
+        </footer>
       </div>
     </div>
   );
