@@ -30,8 +30,8 @@ export default function Dictionary() {
       <section>
         <h1>Dictionary</h1>
         <form onSubmit={search}>
-          <div class="form-row  align-items-center">
-            <div class="col-auto">
+          <div className="form-row  align-items-center">
+            <div className="col-auto">
               <input
                 className="form-control mb-2"
                 type="search"
@@ -40,7 +40,7 @@ export default function Dictionary() {
                 onChange={handleKeywordChange}
               />
             </div>
-            <div class="col-auto">
+            <div className="col-auto">
               <button type="submit" className="btn btn-primary mb-2">
                 Submit
               </button>
