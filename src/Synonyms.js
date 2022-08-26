@@ -2,7 +2,7 @@ import React from "react";
 import "./Synonyms.css";
 
 export default function Synonyms(props) {
-  if (props.synonyms.length > 2) {
+  if (props.synonyms.length > 3) {
     return (
       <div className="Synonyms">
         <strong>Synonyms: </strong>
