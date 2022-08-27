@@ -1,13 +1,18 @@
 import React from "react";
+import Howlerplay from "./Howlerplay";
 
 export default function Phonetics(props) {
-  console.log(props);
-  return (
-    <div className="Phonetics">
-      <i class="fa-solid fa-circle-play" />
-      {props.phonetics.map(function (phonetic, index) {
-        return <span key={index}>{phonetic.audio}</span>;
-      })}
-    </div>
-  );
+  if (props.phonetics[0].audio !== "") {
+    return (
+      <div className="Phonetics">
+        <Howlerplay howlerprop={props.phonetics[0].audio} />
+      </div>
+    );
+  } else {
+    return (
+      <div className="Phonetics">
+        <Howlerplay howlerprop={props.phonetics[1].audio} />
+      </div>
+    );
+  }
 }

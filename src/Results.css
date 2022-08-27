@@ -16,5 +16,12 @@ h3 {
   color: #ff3366;
 }
 
-.phonetic {
+.Howler {
+  font-size: 25px;
+  color: #ff3366;
+  display: inline-flex;
+}
+
+.fa-circle-play {
+  margin-right: 10px;
 }
