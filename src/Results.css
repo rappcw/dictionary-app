@@ -4,6 +4,7 @@ h2 {
   font-size: 35px;
   font-weight: 700;
   margin-bottom: 20px;
+  display: inline;
 }
 
 h3 {
@@ -13,4 +14,7 @@ h3 {
   font-weight: 700;
   margin-bottom: 15px;
   color: #ff3366;
+}
+
+.phonetic {
 }
