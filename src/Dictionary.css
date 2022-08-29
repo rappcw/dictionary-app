@@ -19,3 +19,13 @@ form {
   background-color: #ff3366;
   border-color: #ff3366;
 }
+section {
+  background: white;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
