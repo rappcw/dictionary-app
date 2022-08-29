@@ -7,9 +7,8 @@ export default function Synonyms(props) {
       <div className="Synonyms">
         <strong className="Pink">Similar: </strong>
         {props.synonyms.map(function (synonym, index) {
-          return <span key={index}>{synonym}, </span>;
+          return <span key={index}>{(index ? ", " : "") + synonym}</span>;
         })}
-        <span>{props.synonyms[props.synonyms.length - 1]}</span>
       </div>
     );
   } else {
