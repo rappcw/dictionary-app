@@ -1,3 +1,13 @@
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  background: #f9f8fe;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a {
+  color: #ff3366;
+}
 footer {
   margin-top: 20px;
   font-size: 14px;

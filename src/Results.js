@@ -5,6 +5,7 @@ import Synonyms from "./Synonyms";
 import "./Results.css";
 
 export default function Results(props) {
+  console.log(props);
   if (props.results) {
     return (
       <div className="Results">
@@ -14,7 +15,7 @@ export default function Results(props) {
           <Phonetics phonetics={props.results.phonetics} />
           <span className="Phonetic"> {props.results.phonetic} </span>
         </span>
-        <Synonyms synonyms={props.results.meanings[0].synonyms} />
+
         {props.results.meanings.map(function (meaning, index) {
           return (
             <div key={index}>
