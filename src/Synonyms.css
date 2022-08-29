@@ -1,10 +1,10 @@
-span {
-  text-transform: capitalize;
-}
 .Synonyms {
   font-size: 18px;
-  font-style: italic;
+
   font-weight: 300;
   margin-top: 0;
   margin-bottom: 20px;
+}
+.Pink {
+  color: #ff3366;
 }
