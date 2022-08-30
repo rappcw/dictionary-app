@@ -25,6 +25,10 @@ function App() {
           >
             open-sourced
           </a>
+          <br />
+          <a href="https://www.pexels.com" target="_blank" rel="noreferrer">
+            Photos provided by Pexels
+          </a>
         </footer>
       </div>
     </div>

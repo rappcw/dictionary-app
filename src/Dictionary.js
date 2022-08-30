@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Results from "./Results";
+import Photos from "./Photos";
 import "./Dictionary.css";
 //https://api.dictionaryapi.dev/api/v2/entries/en/sunset
 
 export default function Dictionary() {
   let [keyword, setKeyword] = useState("");
   let [results, setResults] = useState(null);
+  let [photos, setPhotos] = useState(null);
 
   function handleResponse(response) {
-    console.log(response.data[0]);
     setResults(response.data[0]);
-    //console.log(response.data[0].meanings[0].definitions[0].definition);
+  }
+
+  function handlePexelsResponse(response) {
+    console.log(response.data.photos);
+    setPhotos(response.data.photos);
   }
 
   function search(event) {
@@ -19,6 +24,14 @@ export default function Dictionary() {
     //documentation here: https://dictionaryapi.dev/
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
     axios.get(apiUrl).then(handleResponse);
+
+    let pexelsApiKey = `563492ad6f917000010000010e74931d277d4b78ae5d7e3863ead17f`;
+    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}`;
+    axios
+      .get(pexelsApiUrl, {
+        headers: { Authorization: `Bearer ${pexelsApiKey}` },
+      })
+      .then(handlePexelsResponse);
   }
 
   function handleKeywordChange(event) {
@@ -49,6 +62,7 @@ export default function Dictionary() {
         </form>
       </section>
       <Results results={results} />
+      <Photos photos={photos} />
     </div>
   );
 }
