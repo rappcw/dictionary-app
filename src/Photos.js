@@ -2,10 +2,9 @@ import React from "react";
 import "./Photos.css";
 
 export default function Photos(props) {
-  console.log(props);
   if (props.photos) {
     return (
-      <section className="Photos">
+      <div className="Photos">
         <div className="row">
           {props.photos.map(function (photo, index) {
             return (
@@ -14,14 +13,14 @@ export default function Photos(props) {
                   <img
                     src={photo.src.landscape}
                     alt="images"
-                    className="img-fluid mt-4"
+                    className="img-fluid mt-2 mb-2"
                   />
                 </a>
               </div>
             );
           })}
         </div>
-      </section>
+      </div>
     );
   } else {
     return null;
