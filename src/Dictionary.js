@@ -72,9 +72,7 @@ export default function Dictionary() {
           </div>
         </form>
       </section>
-      <div className="Background">
-        <img src={photos[0].src.portrait} alt="images" className="img-fluid" />
-      </div>
+
       <Results results={results} />
       <Photos photos={photos} />
       <Videos videos={video} />
