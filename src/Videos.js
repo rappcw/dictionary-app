@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function Videos(props) {
-  console.log(props);
   if (props.videos) {
     return (
       <div className="Videos">
@@ -13,7 +12,6 @@ export default function Videos(props) {
                 width="580"
                 height="400"
                 poster={video.image}
-                autoPlay
                 muted
               >
                 <source src={video.video_files[0].link} type="video/mp4" />

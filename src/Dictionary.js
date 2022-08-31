@@ -21,6 +21,7 @@ export default function Dictionary() {
   }
   function handlePexelsVideoResponse(response) {
     setVideo(response.data.videos);
+    console.log(video);
   }
 
   function search(event) {
@@ -32,16 +33,17 @@ export default function Dictionary() {
     let pexelsApiKey = `563492ad6f917000010000010e74931d277d4b78ae5d7e3863ead17f`;
     let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=6`;
     let pexelsApiVideoUrl = `https://api.pexels.com/videos/search?query=${keyword}&per_page=1`;
-    axios
-      .get(pexelsApiUrl, {
-        headers: { Authorization: `Bearer ${pexelsApiKey}` },
-      })
-      .then(handlePexelsResponse);
+
     axios
       .get(pexelsApiVideoUrl, {
         headers: { Authorization: `Bearer ${pexelsApiKey}` },
       })
       .then(handlePexelsVideoResponse);
+    axios
+      .get(pexelsApiUrl, {
+        headers: { Authorization: `Bearer ${pexelsApiKey}` },
+      })
+      .then(handlePexelsResponse);
   }
 
   function handleKeywordChange(event) {
