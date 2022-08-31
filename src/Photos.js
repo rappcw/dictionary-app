@@ -4,7 +4,8 @@ import "./Photos.css";
 export default function Photos(props) {
   if (props.photos) {
     return (
-      <div className="Photos">
+      <section className="Photos">
+        <strong className="Pink">Click a photo to see a larger version</strong>
         <div className="row">
           {props.photos.map(function (photo, index) {
             return (
@@ -20,7 +21,7 @@ export default function Photos(props) {
             );
           })}
         </div>
-      </div>
+      </section>
     );
   } else {
     return null;
