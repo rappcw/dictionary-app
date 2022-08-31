@@ -1,7 +1,9 @@
 import React from "react";
 import Howlerplay from "./Howlerplay";
+import "./Phonetics.css";
 
 export default function Phonetics(props) {
+  console.log(props);
   if (props.phonetics.length > 0) {
     if (props.phonetics[0].audio !== "") {
       return (

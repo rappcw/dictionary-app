@@ -21,6 +21,7 @@ h3 {
   font-size: 25px;
   color: #ff3366;
   display: inline-flex;
+  line-height: 23px;
 }
 
 .fa-circle-play {
