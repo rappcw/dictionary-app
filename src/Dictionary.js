@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Results from "./Results";
 import Photos from "./Photos";
+import Videos from "./Videos";
 import "./Dictionary.css";
 //https://api.dictionaryapi.dev/api/v2/entries/en/sunset
 
@@ -9,14 +10,18 @@ export default function Dictionary() {
   let [keyword, setKeyword] = useState("");
   let [results, setResults] = useState(null);
   let [photos, setPhotos] = useState(null);
+  let [video, setVideo] = useState(null);
 
   function handleResponse(response) {
     setResults(response.data[0]);
   }
 
   function handlePexelsResponse(response) {
-    console.log(response.data.photos);
     setPhotos(response.data.photos);
+  }
+  function handlePexelsVideoResponse(response) {
+    console.log(response);
+    setVideo(response.data.videos);
   }
 
   function search(event) {
@@ -27,11 +32,17 @@ export default function Dictionary() {
 
     let pexelsApiKey = `563492ad6f917000010000010e74931d277d4b78ae5d7e3863ead17f`;
     let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=8`;
+    let pexelsApiVideoUrl = `https://api.pexels.com/videos/search?query=${keyword}&per_page=1`;
     axios
       .get(pexelsApiUrl, {
         headers: { Authorization: `Bearer ${pexelsApiKey}` },
       })
       .then(handlePexelsResponse);
+    axios
+      .get(pexelsApiVideoUrl, {
+        headers: { Authorization: `Bearer ${pexelsApiKey}` },
+      })
+      .then(handlePexelsVideoResponse);
   }
 
   function handleKeywordChange(event) {
@@ -63,6 +74,7 @@ export default function Dictionary() {
       </section>
       <Results results={results} />
       <Photos photos={photos} />
+      <Videos videos={video} />
     </div>
   );
 }
