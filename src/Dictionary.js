@@ -21,7 +21,6 @@ export default function Dictionary() {
   }
   function handlePexelsVideoResponse(response) {
     setVideo(response.data.videos);
-    console.log(video);
   }
 
   function search(event) {
@@ -31,7 +30,7 @@ export default function Dictionary() {
     axios.get(apiUrl).then(handleResponse);
 
     let pexelsApiKey = `563492ad6f917000010000010e74931d277d4b78ae5d7e3863ead17f`;
-    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=6`;
+    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=4`;
     let pexelsApiVideoUrl = `https://api.pexels.com/videos/search?query=${keyword}&per_page=1`;
 
     axios
@@ -73,7 +72,9 @@ export default function Dictionary() {
           </div>
         </form>
       </section>
-
+      <div className="Background">
+        <img src={photos[0].src.portrait} alt="images" className="img-fluid" />
+      </div>
       <Results results={results} />
       <Photos photos={photos} />
       <Videos videos={video} />

@@ -10,7 +10,7 @@ export default function Videos(props) {
               <video
                 controls
                 width="580"
-                height="400"
+                height="300"
                 poster={video.image}
                 muted
               >
