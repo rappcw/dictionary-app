@@ -6,9 +6,10 @@
 }
 .Background {
   position: fixed;
-  max-width: 620px;
+  max-width: 580px;
   height: 1000px;
-  margin: -10px;
+  margin-top: 0px;
+  margin-left: 10px;
   opacity: 0.1;
 }
 
