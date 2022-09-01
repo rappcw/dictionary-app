@@ -6,11 +6,12 @@ import Videos from "./Videos";
 import "./Dictionary.css";
 //https://api.dictionaryapi.dev/api/v2/entries/en/sunset
 
-export default function Dictionary() {
-  let [keyword, setKeyword] = useState("");
+export default function Dictionary(props) {
+  let [keyword, setKeyword] = useState(props.defaultKeyword);
   let [results, setResults] = useState(null);
   let [photos, setPhotos] = useState(null);
   let [video, setVideo] = useState(null);
+  let [loaded, setLoaded] = useState(false);
 
   function handleResponse(response) {
     setResults(response.data[0]);
@@ -23,9 +24,7 @@ export default function Dictionary() {
     setVideo(response.data.videos);
   }
 
-  function search(event) {
-    event.preventDefault();
-    //documentation here: https://dictionaryapi.dev/
+  function search() {
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
     axios.get(apiUrl).then(handleResponse);
 
@@ -45,37 +44,57 @@ export default function Dictionary() {
       .then(handlePexelsResponse);
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
   function handleKeywordChange(event) {
     setKeyword(event.target.value);
   }
+  function load() {
+    setLoaded(true);
+    search();
+  }
 
-  return (
-    <div className="Dictionary">
-      <section>
-        <h1>Dictionary</h1>
-        <form onSubmit={search}>
-          <div className="form-row  align-items-center">
-            <div className="col-auto">
-              <input
-                className="form-control mb-2"
-                type="search"
-                autoFocus={true}
-                placeholder="Search for a word"
-                onChange={handleKeywordChange}
-              />
+  if (loaded) {
+    return (
+      <div className="Dictionary">
+        <section>
+          <h1>Dictionary</h1>
+          <form onSubmit={handleSubmit}>
+            <div className="form-row  align-items-center">
+              <div className="col-auto">
+                <input
+                  className="form-control mb-2"
+                  type="search"
+                  autoFocus={true}
+                  placeholder="Search for a word"
+                  onChange={handleKeywordChange}
+                />
+              </div>
+              <div className="col-auto">
+                <button type="submit" className="btn btn-primary mb-2">
+                  Submit
+                </button>
+              </div>
             </div>
-            <div className="col-auto">
-              <button type="submit" className="btn btn-primary mb-2">
-                Submit
-              </button>
-            </div>
-          </div>
-        </form>
-      </section>
-
-      <Results results={results} />
-      <Photos photos={photos} />
-      <Videos videos={video} />
-    </div>
-  );
+          </form>
+        </section>
+        <div className="Background">
+          <img
+            src={photos[0].src.portrait}
+            alt="images"
+            className="img-fluid"
+          />
+        </div>
+        <Results results={results} />
+        <Photos photos={photos} />
+        <Videos videos={video} />
+      </div>
+    );
+  } else {
+    load();
+    return "Loading";
+  }
 }
