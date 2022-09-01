@@ -3,7 +3,7 @@ import axios from "axios";
 import Results from "./Results";
 import Photos from "./Photos";
 import Videos from "./Videos";
-import Background from "./Background";
+
 import "./Dictionary.css";
 //https://api.dictionaryapi.dev/api/v2/entries/en/sunset
 
@@ -29,7 +29,7 @@ export default function Dictionary(props) {
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
     axios.get(apiUrl).then(handleResponse);
 
-    let pexelsApiKey = `563492ad6f917000010000010e74931d277d4b78ae5d7e3863ead17f`;
+    let pexelsApiKey = `563492ad6f91700001000001420a41ba82ff49fb9c9f6831595a62e3`;
     let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=4`;
     let pexelsApiVideoUrl = `https://api.pexels.com/videos/search?query=${keyword}&per_page=1`;
 
