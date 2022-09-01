@@ -3,6 +3,7 @@ import axios from "axios";
 import Results from "./Results";
 import Photos from "./Photos";
 import Videos from "./Videos";
+import Background from "./Background";
 import "./Dictionary.css";
 //https://api.dictionaryapi.dev/api/v2/entries/en/sunset
 
@@ -81,13 +82,7 @@ export default function Dictionary(props) {
             </div>
           </form>
         </section>
-        <div className="Background">
-          <img
-            src={photos[0].src.portrait}
-            alt="images"
-            className="img-fluid"
-          />
-        </div>
+
         <Results results={results} />
         <Photos photos={photos} />
         <Videos videos={video} />
